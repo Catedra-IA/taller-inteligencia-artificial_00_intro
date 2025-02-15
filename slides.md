@@ -450,3 +450,19 @@ print("initial obs:", obs)
   <a href="https://jeffjar.me/cartpole.html">Jugar online</a>
 </div>
 
+---
+
+# Próxima Actividad: Trabajando con K-Bandits 🎰
+
+En la siguiente sesión, exploraremos el problema de los **K-Bandits** mediante un notebook interactivo.
+
+**Preguntas clave:**
+- ¿Cuáles son las **acciones** disponibles para el agente en este contexto?
+- ¿Qué representa la **observación** en este entorno?
+- ¿Qué tipo de **espacios** (`action_space` y `observation_space`) crees que se utilizan en este problema?
+
+---
+layout: center
+---
+
+# A códificar! 

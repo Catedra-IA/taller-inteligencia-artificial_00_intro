@@ -131,7 +131,7 @@ background: https://images.unsplash.com/photo-1523039031846-6b3f39302cb8?q=80&w=
       <li><strong>Ventajas:</strong> Ambiente preconfigurado, acceso a GPU.</li>
       <li><strong>Desventajas:</strong> Recursos limitados en horas pico.</li>
       <li><strong>Para:</strong> Uso remoto de GPU sin costo extra.</li>
-      <li><a href="https://notebook-id.facultades.ort.edu.uy/">Link</a> </li>
+      <li><a href="https://notebook-fi.facultades.ort.edu.uy/">Link</a> </li>
     </ul>
   </div>
 

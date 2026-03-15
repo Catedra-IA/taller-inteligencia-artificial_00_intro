@@ -4,6 +4,7 @@ subtitle: "Clase 00 - Introducción"
 theme: seriph
 background: https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=4140&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 class: text-center
+transition: slide-left
 info: |
   **Modalidad práctica sobre Agentes Inteligentes**
 
@@ -39,15 +40,19 @@ python:
 
 # Presentación del Curso
 
-- **Agentes Inteligentes (parte práctica) 🤖:**  
+<v-clicks>
+
+- **Agentes Inteligentes (parte práctica) 🤖:**
   Exploraremos y desarrollaremos soluciones basadas en IA utilizando aprendizaje por refuerzo con librerías como [gymnasium](https://gymnasium.farama.org/index.html).
 
-- **Basado en Sutton y Barto 📓:**  
+- **Basado en Sutton y Barto 📓:**
   Este libro es la referencia teórica para entender el comportamiento y la toma de decisiones de los agentes. Usaremos algunos de sus ejemplos para implementar en Python.
 
-- **Modalidad práctica 💻:**  
+- **Modalidad práctica 💻:**
   Cada clase se inicia con una consigna o exposición de alguna librería/herramienta, seguida de ejercicios que deben desarrollarse en grupo o individualmente (máximo 3 alumnos).
   > Los ejercicios pueden continuarse en casa y se presentarán en fechas estipuladas.
+
+</v-clicks>
 
 ---
 
@@ -373,7 +378,7 @@ Desde tareas clásicas hasta simulaciones complejas, ideales para experimentar.
 
 <div v-click class="text-center">
 
-Todos estos entornos comparten la **misma interfaz**: `reset()`, `step(action)`, `close()`
+Todos estos entornos comparten la **misma interfaz**: <span v-mark.underline.blue>`reset()`</span>, <span v-mark.underline.orange>`step(action)`</span>, <span v-mark.underline.red>`close()`</span>
 
 </div>
 
@@ -386,13 +391,17 @@ layout: two-cols
 
 Gymnasium sigue el **paradigma de Agente-Entorno** en aprendizaje por refuerzo:
 
-1. **El agente** (una política) observa el entorno.
-2. **Ejecuta una acción** en base a su política.
+<v-clicks>
+
+1. **El agente** (una política) <span v-mark.underline.orange>observa</span> el entorno.
+2. **Ejecuta una** <span v-mark.underline.orange>acción</span> en base a su política.
 3. **El entorno responde**, proporcionando:
    - **Observación** (nuevo "estado" del entorno).
    - **Recompensa** (feedback sobre el desempeño).
    - Otros: terminated, truncated, info.
 4. **El ciclo se repite** hasta completar el episodio u otro criterio.
+
+</v-clicks>
 
 ::right::
 
@@ -454,9 +463,9 @@ Limitaciones y posibilidades
 
 **Tipos Comunes de Espacios:**
 
-- **Box:**  Espacio n-dimensional de valores continuos dentro de límites específicos.
+- <span v-mark.box.blue>**Box:**</span>  Espacio n-dimensional de valores continuos dentro de límites específicos.
 
-- **Discrete:**  Conjunto finito de acciones posibles, numeradas de 0 a n-1.
+- <span v-mark.box.orange>**Discrete:**</span>  Conjunto finito de acciones posibles, numeradas de 0 a n-1.
 
 <div style="position: absolute; bottom: 10px; width: 100%;">
   <a href="https://gymnasium.farama.org/api/spaces/">Documentación: Gymnasium Spaces</a>
@@ -568,9 +577,9 @@ Explorar más: [gymnasium.farama.org/environments](https://gymnasium.farama.org/
 En la siguiente sesión, exploraremos el problema de los **K-Bandits** mediante un notebook interactivo.
 
 **Preguntas clave:**
-- ¿Cuáles son las **acciones** disponibles para el agente en este contexto?
-- ¿Qué representa la **observación** en este entorno?
-- ¿Qué tipo de **espacios** (`action_space` y `observation_space`) crees que se utilizan en este problema?
+- ¿Cuáles son las <span v-mark.underline.orange>**acciones**</span> disponibles para el agente en este contexto?
+- ¿Cómo decide el agente qué acción tomar?
+- ¿Qué información nos da la <span v-mark.underline.orange>**recompensa**</span> y cómo la aprovechamos?
 
 ---
 layout: center

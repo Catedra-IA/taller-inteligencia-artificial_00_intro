@@ -40,7 +40,7 @@ python:
 # Presentación del Curso
 
 - **Agentes Inteligentes (parte práctica) 🤖:**  
-  Exploraremos y desarrollaremos soluciones basadas en IA utilizando apredizaje por refuerzo con librerías como [gymnasium](https://gymnasium.farama.org/index.html).
+  Exploraremos y desarrollaremos soluciones basadas en IA utilizando aprendizaje por refuerzo con librerías como [gymnasium](https://gymnasium.farama.org/index.html).
 
 - **Basado en Sutton y Barto 📓:**  
   Este libro es la referencia teórica para entender el comportamiento y la toma de decisiones de los agentes. Usaremos algunos de sus ejemplos para implementar en Python.
@@ -59,6 +59,7 @@ python:
 
 - Entrega final del semestre por [Gestión ORT](https://gestion.ort.edu.uy/) (online)
 - Fecha estipulada en [Gestión ORT](https://gestion.ort.edu.uy/)
+- **Defensa:** escrita durante el parcial y posiblemente oral (coordinada por Teams días después del parcial)
 
 **Laboratorios (30 puntos)**
 
@@ -67,13 +68,13 @@ python:
 
 **Parcial (20 puntos)**
 
-- Al terminal las clases. Presencial, individual y escrito.
+- Al terminar las clases. Presencial, individual y escrito.
 - Revisar fecha en [Gestión ORT](https://gestion.ort.edu.uy/)
 
 </div>
 
 ---
-## layout: two-cols
+layout: two-cols
 ---
 
 ## Prerequisitos Técnicos
@@ -184,7 +185,7 @@ layout: two-cols
 ::right::
 
 <div class="flex items-center justify-center h-full">
-  <img src="https://upload.wikimedia.org/wikipedia/en/c/cd/Anaconda_Logo.png" class="mx-auto block" alt="Anaconda Logo"/>
+  <img src="https://www.anaconda.com/wp-content/uploads/2024/11/2020_Anaconda_Logo_RGB_Corporate.png" class="mx-auto block" alt="Anaconda Logo"/>
 </div>
 ---
 layout: two-cols
@@ -192,37 +193,35 @@ layout: two-cols
 
 # Crear y Verificar tu Ambiente Conda
 
-1. **Crear el ambiente:**
+1. **Crear el ambiente desde el repositorio:**
 
 ```bash
-conda create -n ia-taller python=3.12
+conda env create -f https://raw.githubusercontent.com/Catedra-IA/taller-inteligencia-artificial-ambiente/main/environment.yml
 ```
 
 2. **Activar el ambiente:**
 
 ```bash
-conda activate ia-taller
+conda activate taller-ia
 ```
 
-3. **Verificar la versión de Python:**
+3. **(opcional) Verificar la instalación:**
 
 ```bash
-python --version
-```
-
-4. Instalar paquetes adicionales:
-
-```bash
-conda install anaconda::jupyter anaconda::numpy anaconda::matplotlib conda-forge::gymnasium 
+curl -O https://raw.githubusercontent.com/Catedra-IA/taller-inteligencia-artificial-ambiente/main/verificar_instalacion.py
+python verificar_instalacion.py
 ```
 
 <br>
 
-> ⚠️ Nota: se pueden instalar más paquetes en el futuro según las necesidades del proyecto.
+> El script verifica todas las dependencias necesarias para cada clase del curso.
+
+<a href="https://github.com/Catedra-IA/taller-inteligencia-artificial-ambiente" class="text-sm">github.com/Catedra-IA/taller-inteligencia-artificial-ambiente</a>
+
 ::right::
 
-<div class="flex items-center justify-center h-full">
-  <img src="https://upload.wikimedia.org/wikipedia/en/c/cd/Anaconda_Logo.png" class="mx-auto block" alt="Anaconda Logo"/>
+<div class="flex flex-col items-center justify-center h-full gap-4">
+  <img src="https://www.anaconda.com/wp-content/uploads/2024/11/2020_Anaconda_Logo_RGB_Corporate.png" class="mx-auto block" alt="Anaconda Logo"/>
 </div>
 ---
 layout: two-cols
@@ -234,7 +233,7 @@ layout: two-cols
   Ejecutar y modificar código en tiempo real.
 - **Contar una historia:**  
   Comentarios que explican cada paso y conclusiones.
-- **Perfecto para Investigaciones y apredizaje:**  
+- **Perfecto para Investigaciones y aprendizaje:**  
   Experimentar, documentar y compartir resultados fácilmente.
 
 ::right::
@@ -341,6 +340,43 @@ Desde tareas clásicas hasta simulaciones complejas, ideales para experimentar.
 <div class="flex items-center justify-center h-full">
   <img src="https://gymnasium.farama.org/_images/lunar_lander.gif" alt="Gymnasium Logo" class=""/>
 </div>
+
+---
+
+# ¿Qué se puede hacer con Gymnasium?
+
+<div grid="~ cols-4 gap-4">
+
+<div class="text-center">
+  <img src="https://gymnasium.farama.org/_images/cart_pole.gif" class="h-30 mx-auto" alt="CartPole"/>
+  <p class="text-sm mt-2"><strong>CartPole</strong><br>Equilibrar un palo</p>
+</div>
+
+<div class="text-center">
+  <img src="https://gymnasium.farama.org/_images/mountain_car.gif" class="h-30 mx-auto" alt="MountainCar"/>
+  <p class="text-sm mt-2"><strong>MountainCar</strong><br>Subir la montaña</p>
+</div>
+
+<div class="text-center">
+  <img src="https://gymnasium.farama.org/_images/lunar_lander.gif" class="h-30 mx-auto" alt="LunarLander"/>
+  <p class="text-sm mt-2"><strong>LunarLander</strong><br>Aterrizar en la luna</p>
+</div>
+
+<div class="text-center">
+  <img src="https://gymnasium.farama.org/_images/taxi.gif" class="h-30 mx-auto" alt="Taxi"/>
+  <p class="text-sm mt-2"><strong>Taxi</strong><br>Llevar pasajeros</p>
+</div>
+
+</div>
+
+<br>
+
+<div v-click class="text-center">
+
+Todos estos entornos comparten la **misma interfaz**: `reset()`, `step(action)`, `close()`
+
+</div>
+
 ---
 layout: two-cols
 ---
@@ -355,7 +391,7 @@ Gymnasium sigue el **paradigma de Agente-Entorno** en aprendizaje por refuerzo:
 3. **El entorno responde**, proporcionando:
    - **Observación** (nuevo "estado" del entorno).
    - **Recompensa** (feedback sobre el desempeño).
-   - Otros: terminate, truncated, info.
+   - Otros: terminated, truncated, info.
 4. **El ciclo se repite** hasta completar el episodio u otro criterio.
 
 ::right::
@@ -452,6 +488,81 @@ print("initial obs:", obs)
 
 ---
 
+# Entornos Disponibles en Gymnasium
+
+Gymnasium ofrece una gran variedad de entornos organizados por categorías:
+
+<div grid="~ cols-3 gap-6">
+
+<div>
+
+**Classic Control**
+- CartPole, MountainCar, Pendulum, Acrobot
+- Ideales para comenzar
+
+</div>
+
+<div>
+
+**Toy Text**
+- FrozenLake, Taxi, Blackjack, CliffWalking
+- Problemas discretos simples
+
+</div>
+
+<div>
+
+**Box2D**
+- LunarLander, BipedalWalker, CarRacing
+- Simulaciones con física 2D
+
+</div>
+
+</div>
+
+<br>
+
+<div v-click>
+
+Explorar más: [gymnasium.farama.org/environments](https://gymnasium.farama.org/environments/classic_control/)
+
+> Además se pueden crear **entornos custom** siguiendo la interfaz de Gymnasium — lo haremos en clase con K-Bandits.
+
+</div>
+
+---
+
+# Temario del Semestre
+
+<div grid="~ cols-2 gap-8">
+
+<div>
+
+| # | Tema |
+|---|------|
+| 01 | Bandidos de K Brazos |
+| 02 | Programación Dinámica |
+| 03 | Métodos Monte Carlo |
+| 04 | Métodos de Diferencias Temporales |
+| 05 | Introducción a PyTorch y Redes Neuronales |
+
+</div>
+
+<div>
+
+| # | Tema |
+|---|------|
+| 06 | Planificación Dyna-Q |
+| 07 | N-Step Bootstrapping |
+| 08 | Actor Critic |
+| 09 | Stable Baselines |
+
+</div>
+
+</div>
+
+---
+
 # Próxima Actividad: Trabajando con K-Bandits 🎰
 
 En la siguiente sesión, exploraremos el problema de los **K-Bandits** mediante un notebook interactivo.
@@ -465,4 +576,4 @@ En la siguiente sesión, exploraremos el problema de los **K-Bandits** mediante 
 layout: center
 ---
 
-# A códificar! 
+# A codificar! 

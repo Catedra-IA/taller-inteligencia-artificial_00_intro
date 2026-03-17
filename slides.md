@@ -196,7 +196,45 @@ layout: two-cols
 layout: two-cols
 ---
 
-# Crear y Verificar tu Ambiente Conda
+# Crear y Verificar tu Ambiente Conda (manual)
+
+1. **Crear el ambiente:**
+
+```bash
+conda create -n taller-ia python=3.12
+```
+
+2. **Activar el ambiente:**
+
+```bash
+conda activate taller-ia
+```
+
+3. **Verificar la versión de Python:**
+
+```bash
+python --version
+```
+
+4. Instalar paquetes adicionales:
+
+```bash
+conda install -c conda-forge jupyter numpy matplotlib gymnasium
+```
+
+<br>
+
+> ⚠️ Nota: se pueden instalar más paquetes en el futuro según las necesidades del proyecto.
+::right::
+
+<div class="flex items-center justify-center h-full">
+  <img src="https://www.anaconda.com/wp-content/uploads/2024/11/2020_Anaconda_Logo_RGB_Corporate.png" class="mx-auto block" alt="Anaconda Logo"/>
+</div>
+---
+layout: two-cols
+---
+
+# Crear y Verificar tu Ambiente Conda (auto)
 
 1. **Crear el ambiente desde el repositorio:**
 
